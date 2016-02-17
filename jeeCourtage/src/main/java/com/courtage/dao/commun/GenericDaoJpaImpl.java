@@ -1,9 +1,10 @@
-package com.courtage.dao;
+package com.courtage.dao.commun;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 
 import javax.persistence.*;
+
 
 public class GenericDaoJpaImpl<T, PK extends Serializable> implements GenericDao<T, PK> {
 
@@ -34,7 +35,8 @@ public class GenericDaoJpaImpl<T, PK extends Serializable> implements GenericDao
 	}
 	
 	@SuppressWarnings("unchecked")
-	public <Collection>T readAll() {
+	@Override
+	public T readAll() {
 		Query q = entityManager.createQuery("SELECT o FROM "+entityClass.getName() +" o");
 	    return (T) q.getResultList();
 	}

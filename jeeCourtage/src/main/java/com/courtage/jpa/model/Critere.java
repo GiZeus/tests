@@ -11,14 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlID;
-import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import com.courtage.data.adapter.IntegerAdapter;
 import com.sun.xml.bind.CycleRecoverable;
 
 @Entity
@@ -97,10 +92,9 @@ public class Critere implements CycleRecoverable {
 		this.categorie = categorie;
 	}
 
+	/// Gestion des dependances circulaires pour JAX RS
 	@Override
 	public Object onCycleDetected(Context arg0) {
-		// TODO Auto-generated method stub
-		//return null;
 		Critere c = new Critere();
 		c.setId(this.getId());
 		return c;

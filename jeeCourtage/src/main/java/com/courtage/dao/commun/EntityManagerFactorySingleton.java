@@ -1,4 +1,4 @@
-package com.courtage.dao;
+package com.courtage.dao.commun;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
